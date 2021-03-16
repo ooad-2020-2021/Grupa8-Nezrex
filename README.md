@@ -27,6 +27,7 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Objavljivanje nekretnine na prodaju ili iznajmljivanje
 - Ažuriranje podataka za nekretninu
 - Komunikacija sa ostalim korisnicima aplikacije
+- Printanje ugovora za kupovinu/prodaju ili rentanje
 - Mogućnost ocjene prodavca
 
 ## Akteri:
