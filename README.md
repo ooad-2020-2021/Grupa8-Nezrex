@@ -36,6 +36,7 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Printanje ugovora za kupovinu/prodaju ili rentanje
 - Mogućnost ocjene prodavca
 - Mogućnost ažuriranja korisničkog profila
+- Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
 
 ##### Adminisrator sistema: 
 - Ima mogućnost pregleda svih registrovanih korisnika
