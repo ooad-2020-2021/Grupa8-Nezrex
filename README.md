@@ -17,20 +17,32 @@
 Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu kao i mogućnost komuniciranja sa drugim korisnicima o kupoprodaji i iznajmljivanju nekretnine putem privatnih poruka. 
 
 ## Funkcionalnosti: 
-- Kreiranje računa
-- Prijava na već postoji račun
-- Odabir filtera za kupoprodaju ili iznajmljivanje
+
+##### Neregistrovani korisnik:
+- Mogućnost kreiranja novog korisničkog računa
+- Mogućnost prijave na postojeći korisnički račun
+- Odabir filtera za kupovinu/prodaju ili iznajmljivanje
 - Pretraga nekretnina po filterima pretrage
-- Pregled informacija o nekretnini
-- Kupoprodaja nekretnine uz kontaktiranje prodavača
-- Iznajmljivanje nekretnine uz kontaktiranje prodavača
-- Objavljivanje nekretnine na prodaju ili iznajmljivanje
+- Mogućnost pregleda informacija o nekretnini
+
+##### Registrovani korisnik:
+- Odabir filtera za kupovinu/prodaju ili iznajmljivanje
+- Pretraga nekretnina po filterima pretrage
+- Mogućnost pregleda informacija o nekretnini
+- Kupovina/prodaja ili iznamljivanje nekretnine koristeći opciju buy/rent ili kontaktirajući prodavca
+- Mogućnost dodavanja vlastite nekretnine na prodaju/iznajmljivanje
 - Ažuriranje podataka za nekretninu
 - Komunikacija sa ostalim korisnicima aplikacije
 - Printanje ugovora za kupovinu/prodaju ili rentanje
 - Mogućnost ocjene prodavca
+- Mogućnost ažuriranja korisničkog profila
+
+##### Adminisrator sistema: 
+- Ima mogućnost pregleda svih registrovanih korisnika
+- Ima mogućnost brisanja korisničkog računa
+- Nadgleda sistem, vodi računa da sve u okviru sistem funkcioniše ispravno i pruža pomoć korisnicima
 
 ## Akteri:
-- *Administrator sistema*: Nadgleda sistem, upravlja aplikacijom, vodi računa da sve u okviru sistema funkcioniše ispravno, reguliše prava pristupa na sistem
-- *Neregistrovani korisnik*: Može samo pregledati artikle, mora izvšiti registraciju ukoliko želi izvršiti kupovinu.
-- *Registrovani korisnik*: Ima mogućnosti kontaktiranja poslodavca i obavljanja kupovine ili iznajmljivanja nekretnine, ima mogućnosti korištenja pogodnosti redovnih kupaca, uređivanja profila, ocjenjivanja poslodavca.
+- *Administrator sistema*
+- *Neregistrovani korisnik*
+- *Registrovani korisnik*
