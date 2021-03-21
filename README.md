@@ -34,6 +34,7 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Ažuriranje podataka za nekretninu
 - Komunikacija sa ostalim korisnicima aplikacije
 - Printanje ugovora za kupovinu/prodaju ili rentanje
+- Mogućnost stavljanja popusta na nekretnine koje stoje na stranici duže od mjesec
 - Mogućnost ocjene prodavca
 - Mogućnost ažuriranja korisničkog profila
 - Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
