@@ -41,7 +41,7 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - *Korištenje asinhronosti*:
 - Mogućnost stavljanja popusta na nekretnine koje stoje na stranici duže od mjesec
 
-##### Adminisrator sistema: 
+##### Administrator sistema: 
 - Ima mogućnost pregleda svih registrovanih korisnika
 - Ima mogućnost brisanja korisničkog računa
 - Nadgleda sistem, vodi računa da sve u okviru sistem funkcioniše ispravno i pruža pomoć korisnicima
