@@ -24,9 +24,8 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Odabir filtera za kupovinu/prodaju ili iznajmljivanje
 - Pretraga nekretnina po filterima pretrage
 - Mogućnost pregleda informacija o nekretnini
-- Korisnik mora popuniti sve podatke pri registraciji
-
-##### Registrovani korisnik:
+ 
+ ##### Registrovani korisnik:
 - Odabir filtera za kupovinu/prodaju ili iznajmljivanje
 - Pretraga nekretnina po filterima pretrage
 - Mogućnost pregleda informacija o nekretnini
@@ -46,6 +45,11 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Ima mogućnost pregleda svih registrovanih korisnika
 - Ima mogućnost brisanja korisničkog računa
 - Nadgleda sistem, vodi računa da sve u okviru sistem funkcioniše ispravno i pruža pomoć korisnicima
+
+##### Nefunkcionalni zahtjevi:
+- Korisnik mora popuniti sve podatke pri registraciji (ime, prezime, password, e-mail, username)
+- Korisnik koji se registruje ne može biti maloljetna osoba
+- Aplikaciji će moći pristupiti korisnici svih operativnih sistema
 
 ## Akteri:
 - *Administrator sistema*
