@@ -24,6 +24,7 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Odabir filtera za kupovinu/prodaju ili iznajmljivanje
 - Pretraga nekretnina po filterima pretrage
 - Mogućnost pregleda informacija o nekretnini
+- Korisnik mora popuniti sve podatke pri registraciji
 
 ##### Registrovani korisnik:
 - Odabir filtera za kupovinu/prodaju ili iznajmljivanje
@@ -35,7 +36,6 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Komunikacija sa ostalim korisnicima aplikacije
 - Mogućnost ocjene prodavca
 - Mogućnost ažuriranja korisničkog profila
-- Korisnik mora popuniti sve podatke pri registraciji
 - *Vanjski uređaj*:
 - Printanje ugovora za kupovinu/prodaju ili rentanje
 - Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
