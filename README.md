@@ -35,9 +35,9 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Komunikacija sa ostalim korisnicima aplikacije
 - Mogućnost ocjene prodavca
 - Mogućnost ažuriranja korisničkog profila
-- *Vanjski uređaj*:
+##### Vanjski uređaj:
    - Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
-- *Korištenje asinhronosti*:
+##### Korištenje asinhronosti:
    - Mogućnost stavljanja popusta na nekretnine koje stoje na stranici duže od mjesec
 
 ##### Administrator sistema: 
