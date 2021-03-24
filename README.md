@@ -36,10 +36,9 @@ Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu
 - Mogućnost ocjene prodavca
 - Mogućnost ažuriranja korisničkog profila
 - *Vanjski uređaj*:
-- Printanje ugovora za kupovinu/prodaju ili rentanje
-- Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
+   - Aplikacija omogućava korisniku da sazna lokaciju nekretnine na mapi
 - *Korištenje asinhronosti*:
-- Mogućnost stavljanja popusta na nekretnine koje stoje na stranici duže od mjesec
+   - Mogućnost stavljanja popusta na nekretnine koje stoje na stranici duže od mjesec
 
 ##### Administrator sistema: 
 - Ima mogućnost pregleda svih registrovanih korisnika
