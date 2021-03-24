@@ -1,5 +1,6 @@
 Najkompleksnije funkcionalnosti u sistemu za koje ćemo kreirati scenarije slučajeva upotrebe:
 - Registracija korisničkog računa
+- Login korisnika
 - Kupovina nekretnine
 - Iznajmljivanje nekretnine
 - Stavljanje nekretnine na prodaju ili iznajmljivanje
