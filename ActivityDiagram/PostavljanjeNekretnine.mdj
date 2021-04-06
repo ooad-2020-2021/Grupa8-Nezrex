@@ -1228,17 +1228,18 @@
 									"model": {
 										"$ref": "AAAAAAF4g4BzR2Gky50="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 254,
-									"top": 497,
+									"left": 271,
+									"top": 488,
+									"width": 50.5908203125,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.7475049436292567,
+									"distance": 56.88585061331157,
 									"hostEdge": {
 										"$ref": "AAAAAAF4g4BzR2GlWQE="
 									},
-									"edgePosition": 1
+									"edgePosition": 1,
+									"text": "[prodaja]"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1813,17 +1814,18 @@
 									"model": {
 										"$ref": "AAAAAAF4g4JX1WJQJ1k="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 478,
-									"top": 497,
+									"left": 391,
+									"top": 487,
+									"width": 84.53173828125,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": -1.8828387509414974,
+									"distance": 32.57299494980466,
 									"hostEdge": {
 										"$ref": "AAAAAAF4g4JX1WJRoJI="
 									},
-									"edgePosition": 1
+									"edgePosition": 1,
+									"text": "[iznajmljivanje]"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3820,6 +3822,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF4g3YazGAD7JY="
 					},
+					"name": "[prodaja]",
 					"source": {
 						"$ref": "AAAAAAF4g396UGGAWFI="
 					},
@@ -3898,6 +3901,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF4g3YazGAD7JY="
 					},
+					"name": "[iznajmljivanje]",
 					"source": {
 						"$ref": "AAAAAAF4g396UGGAWFI="
 					},
