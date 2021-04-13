@@ -1,1 +1,4 @@
-
+Potencijalne klase: 
+-Korisnik: Kupac i Prodavac
+-Nekretnina: Vikendica, Kuca, Stan, Zemljiste
+-Administrator
