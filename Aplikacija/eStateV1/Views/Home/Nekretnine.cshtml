@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Korisnik> SignInManager
+@inject UserManager<Korisnik> UserManager
+@{
+    ViewData["Title"] = "Nekretnine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ovdje treba biti lista svih objavljenih nekretnina iz baze</h1>
+
+@{
+
+    List<SelectListItem> items = new List<SelectListItem>();
+
+    items.Add(new SelectListItem { Text = "Stan", Value = "0" });
+
+    items.Add(new SelectListItem { Text = "Vikendica", Value = "1" });
+
+    items.Add(new SelectListItem { Text = "Zemljište", Value = "2" });
+
+    items.Add(new SelectListItem { Text = "Kuća", Value = "3" });
+
+    @using (Html.BeginForm("IzborNekretnineZaPregled", "Home", FormMethod.Post))
+    {
+        @Html.DropDownList("vrsta", items)
+
+        <input type="submit" value="Submit" />
+    }
+}
