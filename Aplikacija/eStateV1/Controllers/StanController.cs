@@ -27,6 +27,13 @@ namespace eStateV1.Controllers
             var eStateDBContext = _context.Stan.Include(s => s.Korisnik);
             return View(await eStateDBContext.ToListAsync());
         }
+        public async Task<IActionResult> MojiStanovi()
+        {
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var stanovi = await _context.Stan.Where(x => x.KorisnikId ==int.Parse(userId)).ToListAsync();
+            return View("Index", stanovi);
+        }
+
 
         // GET: Stan/Details/5
         public async Task<IActionResult> Details(int? id)

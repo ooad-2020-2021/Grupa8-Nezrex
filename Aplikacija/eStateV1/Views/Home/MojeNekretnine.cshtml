@@ -29,17 +29,17 @@
             </tr>
             @foreach (Kuca kuca in Model.kuce)
             {
-                <tr>
-                    <td>@kuca.Naziv</td>
-                    <td>@kuca.Cijena</td>
-                    <td>
-                        <a asp-controller="Kuca" asp-action="Details" asp-route-id="@kuca.Id">Pogledaj detalje</a>
-                    </td>
-                </tr>
+        <tr>
+            <td>@kuca.Naziv</td>
+            <td>@kuca.Cijena</td>
+            <td>
+                <a asp-controller="Kuca" asp-action="Details" asp-route-id="@kuca.Id">Pogledaj detalje</a>
+            </td>
+        </tr>
             }
         </table>
     </div>
-
+    
     <div id="stan" class="tab-pane fade">
         <table class="table">
             <tr>
@@ -59,7 +59,7 @@
             }
         </table>
     </div>
-
+    
     <div id="vikendica" class="tab-pane fade">
         <table class="table">
             <tr>
@@ -79,7 +79,7 @@
             }
         </table>
     </div>
-
+    
     <div id="zemljiste" class="tab-pane fade">
         <table class="table">
             <tr>

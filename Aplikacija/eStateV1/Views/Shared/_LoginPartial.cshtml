@@ -1,27 +1,56 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using eStateV1.Areas.Identity.Pages.Account
 @inject SignInManager<Korisnik> SignInManager
 @inject UserManager<Korisnik> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    var user =  UserManager.GetUserAsync(User).Result.Ime;
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Dobrodošao, @user!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = UserManager.GetUserAsync(User).Result.Ime;
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Dobrodošao, @user!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Login
+            </a>
+            <div class="dropdown-menu" style="width:300px; padding: 30px; padding-bottom: 20px;">
+                <form class="form-horizontal" asp-controller="Account" asp-action="Login" method="post">
+                    <div style="padding-bottom:10px;">
+                        <label>Email</label>
+                        <input type="text" name="Email" class="form-control" />
+                    </div>
+                    <div style="padding-bottom:20px;">
+                        <label>Password</label>
+                        <input type="password" name="Password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                Remember me ?
+                            </label>
+                            <input type="checkbox" name="ZapamtiMe" />
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <input class="btn btn-primary" type="submit" name="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+        </li>
+    }
 </ul>

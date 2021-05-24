@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eStateV1.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace eStateV1.Controllers
 {
     public class KucaController : Controller
     {
         private readonly eStateDBContext _context;
+        private readonly UserManager<Korisnik> _userManager;
 
-        public KucaController(eStateDBContext context)
+        public KucaController(eStateDBContext context,UserManager<Korisnik> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Kuca
@@ -23,6 +24,12 @@ namespace eStateV1.Controllers
         {
             var eStateDBContext = _context.Kuca.Include(k => k.Korisnik);
             return View(await eStateDBContext.ToListAsync());
+        }
+        public async Task<IActionResult> MojeKuce()
+        {
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var kuce =await  _context.Kuca.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            return View("Index",kuce);
         }
 
         // GET: Kuca/Details/5
@@ -56,10 +63,11 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis,KorisnikId")] Kuca kuca)
+        public async Task<IActionResult> Create([Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Kuca kuca)
         {
             if (ModelState.IsValid)
             {
+                kuca.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
                 _context.Add(kuca);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

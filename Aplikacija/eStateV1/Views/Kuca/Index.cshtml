@@ -1,45 +1,21 @@
 ﻿@model IEnumerable<eStateV1.Models.Kuca>
-
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Kuce</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BrojSpratova)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BrojSoba)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parking)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Namjestena)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Naziv)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cijena)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Adresa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DetaljniOpis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Korisnik)
-            </th>
+    
             <th></th>
         </tr>
     </thead>
@@ -47,36 +23,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.BrojSpratova)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BrojSoba)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Namjestena)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Naziv)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cijena)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Adresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetaljniOpis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Korisnik.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <!--<a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |-->
+                <a asp-action="Details" asp-route-id="@item.Id">Pogledaj detalje</a> 
+                <!--<a asp-action="Delete" asp-route-id="@item.Id">Obriši nekretninu</a>-->
             </td>
         </tr>
 }

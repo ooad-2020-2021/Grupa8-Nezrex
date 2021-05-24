@@ -38,10 +38,16 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DodajNekretninu">Dodaj nekretninu</a>
                             </li>
                         }
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MojeNekretnine">Moje nekretnine</a>
+                            </li>
+                        }
                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminPanel">Admin Panel</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminPanel">Admin Panel</a>
                             </li>
                         }
                     </ul>

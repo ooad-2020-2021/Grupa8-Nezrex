@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace eStateV1.Controllers
 {
@@ -15,10 +16,12 @@ namespace eStateV1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly eStateDBContext _context;
-        public HomeController(ILogger<HomeController> logger,eStateDBContext context)
+        private readonly UserManager<Korisnik> _userManager;
+        public HomeController(ILogger<HomeController> logger,eStateDBContext context,UserManager<Korisnik> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -39,10 +42,32 @@ namespace eStateV1.Controllers
         {
             return View();
         }
-        public IActionResult Nekretnine()
+        public async Task<IActionResult> Nekretnine()
         {
-            return View();
+            dynamic returnModel = new ExpandoObject();
+            returnModel.kuce = await _context.Kuca.ToListAsync();
+            returnModel.stanovi = await _context.Stan.ToListAsync();
+            returnModel.vikendice = await _context.Vikendica.ToListAsync();
+            returnModel.zemljista =await _context.Zemljiste.ToListAsync();
+            return View(returnModel);
         }
+
+        public async Task<IActionResult> MojeNekretnine()
+        {
+            dynamic returnModel = new ExpandoObject();
+            var userId = _userManager.GetUserId(HttpContext.User);
+            returnModel.kuce = await _context.Kuca.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            returnModel.stanovi = await _context.Stan.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            returnModel.vikendice = await _context.Vikendica.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            returnModel.zemljista = await _context.Zemljiste.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            return View(returnModel);
+        }
+
+       /* public Task<IActionResult> IzborNekretnine()
+        {
+            
+            //return View(returnModel);
+        }*/
 
         [HttpPost]
         [AllowAnonymous]
@@ -92,6 +117,45 @@ namespace eStateV1.Controllers
 
             return View("Index");
         }
+
+        public IActionResult MojeIzborNekretnine(int vrsta)
+        {
+
+            if (vrsta == 0)
+            {
+                return RedirectToAction("MojiStanovi", "Stan");
+            }
+            if (vrsta == 1)
+            {
+                return RedirectToAction("MojeVikendice", "Vikendica");
+            }
+            if (vrsta == 2)
+            {
+                return RedirectToAction("MojaZemljista", "Zemljiste");
+            }
+            if (vrsta == 3)
+            {
+                return RedirectToAction("MojeKuce", "Kuca");
+            }
+
+            return View("Index");
+        }
+
+
+        public IActionResult SveNekretnine(string value)
+        {
+            if(value=="Kuce")
+            {
+                var kuce = _context.Kuca.ToList();
+                TempData["Kuce"] = JsonConvert.SerializeObject(kuce);
+            }
+            else
+            {
+                TempData["Kuce"] = _context.Kuca.ToList();
+            }
+            return RedirectToAction("MojeNekretnine");
+        }
+
 
 
 

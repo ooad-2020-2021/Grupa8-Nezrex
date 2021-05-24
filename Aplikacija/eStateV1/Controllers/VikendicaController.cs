@@ -26,6 +26,12 @@ namespace eStateV1.Controllers
             var eStateDBContext = _context.Vikendica.Include(v => v.Korisnik);
             return View(await eStateDBContext.ToListAsync());
         }
+        public async Task<IActionResult> MojeVikendice()
+        {
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var vikendice = await _context.Vikendica.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            return View("Index",vikendice);
+        }
 
         // GET: Vikendica/Details/5
         public async Task<IActionResult> Details(int? id)

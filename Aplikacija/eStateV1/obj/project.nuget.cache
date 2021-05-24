@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ry97fenjkAfDt9TLMbWJCRPBHLGyDyiDGAXlgkwSNrh8QUqhB1qS7rYXILpI+4hVPmmEEtjptX6/WtjvYhYXgA==",
+  "dgSpecHash": "YHGnE4l+02HV9xTpP1j/CnwAJshE3ZHH8+aAqQ518NaiZfKMo4KA4TgZG8B5RuWMNLZbrhA8+OgGy24ziLkoyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Korisnik\\Desktop\\eStateV1\\eStateV1.csproj",
+  "projectFilePath": "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\eStateV1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Korisnik\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.15\\microsoft.aspnetcore.cryptography.internal.3.1.15.nupkg.sha512",
     "C:\\Users\\Korisnik\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.15\\microsoft.aspnetcore.cryptography.keyderivation.3.1.15.nupkg.sha512",

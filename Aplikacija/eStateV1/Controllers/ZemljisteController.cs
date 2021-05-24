@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eStateV1.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace eStateV1.Controllers
 {
     public class ZemljisteController : Controller
     {
         private readonly eStateDBContext _context;
-
-        public ZemljisteController(eStateDBContext context)
+        private readonly UserManager<Korisnik> _userManager;
+        public ZemljisteController(eStateDBContext context, UserManager<Korisnik> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Zemljiste
@@ -25,6 +27,12 @@ namespace eStateV1.Controllers
             return View(await eStateDBContext.ToListAsync());
         }
 
+        public async Task<IActionResult> MojaZemljista()
+        {
+            var userId = _userManager.GetUserId(HttpContext.User);
+            var zemljista = await _context.Zemljiste.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            return View("Index", zemljista);
+        }
         // GET: Zemljiste/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -56,10 +64,11 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UrbanistickaDozvola,GradjevinskaDozvola,KomunalniPrikljucak,Id,Naziv,Cijena,Adresa,DetaljniOpis,KorisnikId")] Zemljiste zemljiste)
+        public async Task<IActionResult> Create([Bind("UrbanistickaDozvola,GradjevinskaDozvola,KomunalniPrikljucak,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Zemljiste zemljiste)
         {
             if (ModelState.IsValid)
             {
+                zemljiste.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
                 _context.Add(zemljiste);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

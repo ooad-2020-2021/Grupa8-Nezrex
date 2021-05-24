@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Korisnik\\Desktop\\eStateV1\\eStateV1.csproj": {}
+    "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\eStateV1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Korisnik\\Desktop\\eStateV1\\eStateV1.csproj": {
+    "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\eStateV1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\eStateV1\\eStateV1.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\eStateV1.csproj",
         "projectName": "eStateV1",
-        "projectPath": "C:\\Users\\Korisnik\\Desktop\\eStateV1\\eStateV1.csproj",
+        "projectPath": "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\eStateV1.csproj",
         "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Korisnik\\Desktop\\eStateV1\\obj\\",
+        "outputPath": "C:\\Users\\Korisnik\\Desktop\\OOAD PROJEKAT\\Grupa8-Nezrex\\Aplikacija\\eStateV1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
