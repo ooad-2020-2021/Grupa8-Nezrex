@@ -1,5 +1,5 @@
 <h1 align="center">Grupa8-Nezrex</h1>
-<h1 align="center">eState</h1>
+<h1 align="center">eSTATE</h1>
 
 ![image](https://user-images.githubusercontent.com/72890975/111215550-89b70a00-85d3-11eb-8f20-596533d1595c.png)
 
@@ -13,7 +13,7 @@
 * [Admir Prljača](https://github.com/aprljaca1)
 
 ## Opis teme:
-- eState je aplikacija koja služi da olakša korisnicima pronalazak i prodaju ili iznajmljivanje nekretnina. Korisnik aplikacije ima mogućnost kupovine, prodaje ili iznajmljivanja nekretnina kao što su kuće, stanovi i poslovni prostori. Omogućena je pretraga nekretnina pomoću različitih filtera kao što su vrsta nekretnine, cijena, lokacija i kvadratura. 
+- eSTATE je aplikacija koja služi da olakša korisnicima pronalazak i prodaju ili iznajmljivanje nekretnina. Korisnik aplikacije ima mogućnost kupovine, prodaje ili iznajmljivanja nekretnina kao što su kuće, stanovi i poslovni prostori. Omogućena je pretraga nekretnina pomoću različitih filtera kao što su vrsta nekretnine, cijena, lokacija i kvadratura. 
 Registrovani korisnici će imati mogućnost objavljivanja nekretnine na stranicu kao i mogućnost komuniciranja sa drugim korisnicima o kupoprodaji i iznajmljivanju nekretnine putem privatnih poruka. 
 
 ## Funkcionalnosti: 
