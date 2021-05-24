@@ -1,5 +1,5 @@
 <h1 align="center">Grupa8-Nezrex</h1>
-<h1 align="center">eState</h1>
+<h1 align="center">eSTATE</h1>
 
 ![image](https://user-images.githubusercontent.com/72890975/111215550-89b70a00-85d3-11eb-8f20-596533d1595c.png)
 
