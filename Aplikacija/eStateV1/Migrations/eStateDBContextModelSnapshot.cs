@@ -231,6 +231,9 @@ namespace eStateV1.Migrations
                     b.Property<string>("Naziv")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("VrijemeObjave")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("KorisnikId");
@@ -267,6 +270,26 @@ namespace eStateV1.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("eStateV1.Models.Slike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageBase64")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NekretninaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NekretninaId");
+
+                    b.ToTable("Slike");
                 });
 
             modelBuilder.Entity("eStateV1.Models.Kuca", b =>
@@ -412,6 +435,15 @@ namespace eStateV1.Migrations
                     b.HasOne("eStateV1.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("eStateV1.Models.Slike", b =>
+                {
+                    b.HasOne("eStateV1.Models.Nekretnina", "slikeNekretnina")
+                        .WithMany("slike")
+                        .HasForeignKey("NekretninaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

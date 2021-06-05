@@ -69,6 +69,9 @@ namespace eStateV1.Controllers
             if (ModelState.IsValid)
             {
                 zemljiste.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
+                var now = DateTime.Now;
+                var date = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+                zemljiste.VrijemeObjave = date;
                 _context.Add(zemljiste);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,7 +102,7 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UrbanistickaDozvola,GradjevinskaDozvola,KomunalniPrikljucak,Id,Naziv,Cijena,Adresa,DetaljniOpis,KorisnikId")] Zemljiste zemljiste)
+        public async Task<IActionResult> Edit(int id, [Bind("UrbanistickaDozvola,GradjevinskaDozvola,KomunalniPrikljucak,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Zemljiste zemljiste)
         {
             if (id != zemljiste.Id)
             {
@@ -110,6 +113,7 @@ namespace eStateV1.Controllers
             {
                 try
                 {
+                    zemljiste.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
                     _context.Update(zemljiste);
                     await _context.SaveChangesAsync();
                 }

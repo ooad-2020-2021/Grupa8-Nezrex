@@ -2,11 +2,11 @@
 @inject SignInManager<Korisnik> SignInManager
 @inject UserManager<Korisnik> UserManager
 @{
-    ViewData["Title"] = "DodajNekretninu";
+    ViewData["Title"] = "Objavi nekretninu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>DodajNekretninu</h1>
+<h1>Koju nekretninu želite objaviti ?</h1>
 
 @if (SignInManager.IsSignedIn(User))
 {
@@ -25,6 +25,6 @@
     {
         @Html.DropDownList("vrsta", items)
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Dalje" />
     }
 }

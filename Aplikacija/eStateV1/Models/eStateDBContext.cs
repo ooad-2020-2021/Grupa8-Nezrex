@@ -19,11 +19,13 @@ namespace eStateV1.Models
         public DbSet<Vikendica> Vikendica { get; set; }
         public DbSet<Kuca> Kuca { get; set; }
         public DbSet<Zemljiste> Zemljiste { get; set; }
+        public DbSet<Slike> Slike { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Nekretnina>().ToTable("Nekretnina");
+            modelBuilder.Entity<Nekretnina>().Property(f => f.VrijemeObjave).HasColumnType("datetime2");
             //modelBuilder.Entity<Stan>().ToTable("")
         }
     }

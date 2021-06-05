@@ -9,6 +9,8 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+using eStateV1.Helpers;
 
 namespace eStateV1.Controllers
 {
@@ -17,23 +19,32 @@ namespace eStateV1.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly eStateDBContext _context;
         private readonly UserManager<Korisnik> _userManager;
+        private readonly HelperMethods _helperMethods;
         public HomeController(ILogger<HomeController> logger,eStateDBContext context,UserManager<Korisnik> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
+            _helperMethods = new HelperMethods();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var weather = await _helperMethods.GetInfoAboutWeatherInSarajevo();
+            var temperatura = weather.temp;
+            var Grad = weather.city_name;
+            ViewBag.Temperatura = temperatura;
+            ViewBag.Grad = Grad;
             return View();
         }
+        
         [Authorize(Roles="Admin")]
         public IActionResult AdminPanel()
         {
             var korisnici = _context.Users.ToList();
             return View(korisnici);
         }
+        
         public IActionResult DodajNekretninu()
         {
             return View();

@@ -9,9 +9,16 @@
 }
 @model dynamic
 
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="DodajNekretninu">Dodaj nekretninu</a>
+}
+<p><br /></p>
+
 <div class="tab">
     <ul class="nav nav-tabs">
-        <li class="active"><button type="button" class="tablinks" data-toggle="tab" href="#kuca">Kuće</button></li>
+        <li><button type="button" class="tablinks " data-toggle="tab" href="#kuca">Kuće</button></li>
         <li><button type="button" class="tablinks" data-toggle="tab" href="#stan">Stanovi</button></li>
         <li><button type="button" class="tablinks" data-toggle="tab" href="#vikendica">Vikendice</button></li>
         <li><button type="button" class="tablinks" data-toggle="tab" href="#zemljiste">Zemljišta</button></li>
@@ -21,7 +28,7 @@
 
 <div class="tab-content">
     <div id="kuca" class="tab-pane fade">
-        <table class="table">
+        <table class="table" >
             <tr>
                 <th>Naziv</th>
                 <th>Cijena</th>
@@ -29,17 +36,18 @@
             </tr>
             @foreach (Kuca kuca in Model.kuce)
             {
-        <tr>
-            <td>@kuca.Naziv</td>
-            <td>@kuca.Cijena</td>
-            <td>
-                <a asp-controller="Kuca" asp-action="Details" asp-route-id="@kuca.Id">Pogledaj detalje</a>
-            </td>
-        </tr>
+                <tr>
+                    <td>@kuca.Naziv</td>
+                    <td>@kuca.Cijena</td>
+                    <td>
+                        <a asp-controller="Kuca" asp-action="Details" asp-route-id="@kuca.Id">Pogledaj detalje |</a>
+                        <a asp-controller="Kuca" asp-action="Delete" asp-route-id="@kuca.Id"> Obriši nekretninu</a>
+                    </td>
+                </tr>
             }
         </table>
     </div>
-    
+
     <div id="stan" class="tab-pane fade">
         <table class="table">
             <tr>
@@ -53,13 +61,14 @@
                     <td>@stan.Naziv</td>
                     <td>@stan.Cijena</td>
                     <td>
-                        <a asp-controller="Stan" asp-action="Details" asp-route-id="@stan.Id">Pogledaj detalje</a>
+                        <a asp-controller="Stan" asp-action="Details" asp-route-id="@stan.Id">Pogledaj detalje |</a>
+                        <a asp-controller="Stan" asp-action="Delete" asp-route-id="@stan.Id"> Obriši nekretninu</a>
                     </td>
                 </tr>
             }
         </table>
     </div>
-    
+
     <div id="vikendica" class="tab-pane fade">
         <table class="table">
             <tr>
@@ -73,13 +82,14 @@
                     <td>@vikendica.Naziv</td>
                     <td>@vikendica.Cijena</td>
                     <td>
-                        <a asp-controller="Vikendica" asp-action="Details" asp-route-id="@vikendica.Id">Pogledaj detalje</a>
+                        <a asp-controller="Vikendica" asp-action="Details" asp-route-id="@vikendica.Id">Pogledaj detalje |</a>
+                        <a asp-controller="Vikendica" asp-action="Delete" asp-route-id="@vikendica.Id"> Obriši nekretninu</a>
                     </td>
                 </tr>
             }
         </table>
     </div>
-    
+
     <div id="zemljiste" class="tab-pane fade">
         <table class="table">
             <tr>
@@ -93,10 +103,14 @@
                     <td>@zemljiste.Naziv</td>
                     <td>@zemljiste.Cijena</td>
                     <td>
-                        <a asp-controller="Zemljiste" asp-action="Details" asp-route-id="@zemljiste.Id">Pogledaj detalje</a>
+                        <a asp-controller="Zemljiste" asp-action="Details" asp-route-id="@zemljiste.Id">Pogledaj detalje |</a>
+                        <a asp-controller="Zemljiste" asp-action="Delete" asp-route-id="@zemljiste.Id"> Obriši nekretninu</a>
                     </td>
                 </tr>
             }
         </table>
     </div>
 </div>
+<script>
+    
+</script>

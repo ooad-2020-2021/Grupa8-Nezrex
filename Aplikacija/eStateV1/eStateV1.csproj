@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210520231144_Peta.cs" />
     <Compile Remove="Migrations\20210520231144_Peta.Designer.cs" />
+    <Compile Remove="Migrations\20210531163607_DodanaTabelaZaSlikeV2.cs" />
+    <Compile Remove="Migrations\20210531163607_DodanaTabelaZaSlikeV2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

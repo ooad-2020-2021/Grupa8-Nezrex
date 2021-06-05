@@ -15,7 +15,15 @@ namespace eStateV1.Models
         public string Adresa { get; set; }
         [Display(Name = "Detaljni opis")]
         public string DetaljniOpis { get; set; }
+        [Display(Name = "Vrijeme objave")]
+        [Column(TypeName = "datetime2")]
+        public DateTime VrijemeObjave { get; set; }
         public int KorisnikId { get; set; }
         public virtual Korisnik Korisnik { get; set; }
+        public List<Slike> slike { get; set; }
+        public Nekretnina()
+        {
+            slike = new List<Slike>();
+        }
     }
 }

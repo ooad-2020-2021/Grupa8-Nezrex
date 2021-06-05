@@ -52,9 +52,10 @@ namespace eStateV1.Areas.Identity.Pages.Account
             public string Email { get; set; }
             public string Ime { get; set; }
             public string Prezime { get; set; }
-            [Display(Name = "Postanski broj")]
+            [Display(Name = "Poštanski broj")]
             public int PostanskiBroj { get; set; }
             public string Kanton { get; set; }
+            [Display(Name = "Broj telefona")]
             public int BrojTelefona { get; set; }
             public string Adresa { get; set; }
             [Required]

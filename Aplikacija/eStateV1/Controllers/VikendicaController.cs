@@ -69,6 +69,9 @@ namespace eStateV1.Controllers
             if (ModelState.IsValid)
             {
                 vikendica.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
+                var now = DateTime.Now;
+                var date = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+                vikendica.VrijemeObjave =date;
                 _context.Add(vikendica);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,7 +102,7 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BrojSoba,BrojSpratova,Parking,Namjeseten,Id,Naziv,Cijena,Adresa,DetaljniOpis,KorisnikId")] Vikendica vikendica)
+        public async Task<IActionResult> Edit(int id, [Bind("BrojSoba,BrojSpratova,Parking,Namjeseten,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Vikendica vikendica)
         {
             if (id != vikendica.Id)
             {
@@ -110,6 +113,7 @@ namespace eStateV1.Controllers
             {
                 try
                 {
+                    vikendica.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
                     _context.Update(vikendica);
                     await _context.SaveChangesAsync();
                 }

@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eStateV1.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Web;
+using System.Collections.Generic;
+using System;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace eStateV1.Controllers
 {
@@ -13,7 +18,7 @@ namespace eStateV1.Controllers
         private readonly eStateDBContext _context;
         private readonly UserManager<Korisnik> _userManager;
 
-        public KucaController(eStateDBContext context,UserManager<Korisnik> userManager)
+        public KucaController(eStateDBContext context, UserManager<Korisnik> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -28,8 +33,8 @@ namespace eStateV1.Controllers
         public async Task<IActionResult> MojeKuce()
         {
             var userId = _userManager.GetUserId(HttpContext.User);
-            var kuce =await  _context.Kuca.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
-            return View("Index",kuce);
+            var kuce = await _context.Kuca.Where(x => x.KorisnikId == int.Parse(userId)).ToListAsync();
+            return View("Index", kuce);
         }
 
         // GET: Kuca/Details/5
@@ -43,6 +48,8 @@ namespace eStateV1.Controllers
             var kuca = await _context.Kuca
                 .Include(k => k.Korisnik)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            var slike = await _context.Slike.Where(x => x.NekretninaId == id).ToListAsync();
+            kuca.slike = slike;
             if (kuca == null)
             {
                 return NotFound();
@@ -63,15 +70,35 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Kuca kuca)
+        public async Task<IActionResult> Create([Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Kuca kuca, ICollection<IFormFile> files)
         {
+
+
+            //var res =  System.IO.File.ReadAllBytes(formFiles[0]);
+            // String file = Convert.ToBase64String(res);
             if (ModelState.IsValid)
             {
                 kuca.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
+                var now = DateTime.Now;
+                var date = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second);
+                kuca.VrijemeObjave =date;
                 _context.Add(kuca);
                 await _context.SaveChangesAsync();
+                foreach (var file in files)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        file.CopyTo(ms);
+                        var bajtovi = ms.ToArray();
+                        string s = Convert.ToBase64String(bajtovi);
+                        var slika = new Slike { ImageBase64 = s, NekretninaId = kuca.Id };
+                        _context.Slike.Add(slika);
+                        await _context.SaveChangesAsync();
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["KorisnikId"] = new SelectList(_context.Users, "Id", "Id", kuca.KorisnikId);
             return View(kuca);
         }
@@ -98,7 +125,7 @@ namespace eStateV1.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis,KorisnikId")] Kuca kuca)
+        public async Task<IActionResult> Edit(int id, [Bind("BrojSpratova,BrojSoba,Parking,Namjestena,Id,Naziv,Cijena,Adresa,DetaljniOpis")] Kuca kuca)
         {
             if (id != kuca.Id)
             {
@@ -109,6 +136,7 @@ namespace eStateV1.Controllers
             {
                 try
                 {
+                    kuca.KorisnikId = int.Parse(_userManager.GetUserId(HttpContext.User));
                     _context.Update(kuca);
                     await _context.SaveChangesAsync();
                 }

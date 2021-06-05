@@ -871,3 +871,4 @@ C:\Users\Korisnik\Desktop\OOAD PROJEKAT\Grupa8-Nezrex\Aplikacija\eStateV1\obj\De
 C:\Users\Korisnik\Desktop\OOAD PROJEKAT\Grupa8-Nezrex\Aplikacija\eStateV1\obj\Debug\netcoreapp3.1\eStateV1.pdb
 C:\Users\Korisnik\Desktop\OOAD PROJEKAT\Grupa8-Nezrex\Aplikacija\eStateV1\obj\Debug\netcoreapp3.1\eStateV1.genruntimeconfig.cache
 C:\Users\Korisnik\Desktop\OOAD PROJEKAT\Grupa8-Nezrex\Aplikacija\eStateV1\obj\Debug\netcoreapp3.1\Razor\Views\Home\MojeNekretnine.cshtml.g.cs
+C:\Users\Korisnik\Desktop\OOAD PROJEKAT\Grupa8-Nezrex\Aplikacija\eStateV1\bin\Debug\netcoreapp3.1\web.config
